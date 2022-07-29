@@ -1,0 +1,19 @@
+# HackerRank challenge problem link: https://www.hackerrank.com/challenges/java-anagrams/problem
+
+    static boolean isAnagram(String a, String b) {
+        int arr[] = new int[256];
+        if (a.length() !=b.length())
+            return false; 
+            
+        a = a.toLowerCase();
+        b = b.toLowerCase();
+        
+        for (int c: a.toCharArray())
+            arr[c]++;
+        
+        for (int c: b.toCharArray()){
+            arr[c]--;
+            if (arr[c] < 0) return false;   
+        } 
+        return true;
+    }
