@@ -1,0 +1,17 @@
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String s = scan.nextLine().trim();
+        // look for empty string
+        if (s.compareTo("")==0) 
+            System.out.println("0");
+        else{
+        // "[ !,?._'@]+" is regex for 1 or more occurances of the chars
+        String[] strs=s.split("[ !,?._'@]+");
+        System.out.println(strs.length);
+        
+        for (String string : strs) 
+            System.out.println(string);
+        }
+        // Write your code here.
+        scan.close();
+    }
