@@ -1,0 +1,8 @@
+//Write your code here
+class MyRegex{
+    String pattern="";
+    public MyRegex() {
+        String ptrn1 = "([0-1]?\\d{1,2}|2[0-4]\\d|25[0-5])";
+        pattern=String.format("^(%s[.]){3}%s$", ptrn1, ptrn1);  
+    }
+}
