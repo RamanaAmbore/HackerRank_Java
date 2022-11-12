@@ -1,0 +1,34 @@
+public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        List<List<Integer>> arr = new ArrayList<>();
+
+        IntStream.range(0, 6).forEach(i -> {
+            try {
+                arr.add(
+                    Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                        .map(Integer::parseInt)
+                        .collect(toList())
+                );
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        bufferedReader.close();
+        
+        int sum = -10000;
+        for(int i=0;i < 4;i++)
+        for (int j=0; j< 4;j++){
+          int sum1=0;
+          for (int k =i;k< i+3;k++)
+                if (k == i +1)
+                    sum1 = sum1 +  arr.get(k).get(j+1);
+                else
+                    sum1 = sum1+arr.get(k).get(j) + arr.get(k).get(j+1) + arr.get(k).get(j+2);
+          
+          if (sum < sum1) sum = sum1;
+          
+        }
+        System.out.println(sum);
+    }
