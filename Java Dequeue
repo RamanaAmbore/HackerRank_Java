@@ -1,0 +1,23 @@
+        public static void main(String[] args) {
+            Scanner in = new Scanner(System.in);
+            Deque deque = new ArrayDeque<>();
+            int n = in.nextInt();
+            int m = in.nextInt();
+            int max = 0;
+            for (int i = 0; i < n; i++) {
+                int num = in.nextInt();
+                deque.add(num);
+                if (i < m-1) continue;
+                int dsz = deque.size();
+                if (dsz > m){
+                    deque.removeFirst();
+                    dsz--;}
+            
+                if (dsz == m){
+                    HashSet<Integer> hs = new HashSet<>(deque);
+                    int sz = hs.size();
+                    if (sz > max) max = sz;
+                }
+            }
+            System.out.printf("%s", max);
+        }
