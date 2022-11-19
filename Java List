@@ -1,0 +1,14 @@
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner s = new Scanner(System.in);
+        ArrayList<Integer> alist = new ArrayList<>();
+        int size = s.nextInt();        
+        for (int j=0; j < size;++j)
+                alist.add(s.nextInt());
+        size = s.nextInt();
+
+        for (int i=0; i<size;++i)  { 
+            s.nextLine();
+            if (s.nextLine().equals("Insert")) alist.add(s.nextInt(),s.nextInt());
+            else alist.remove(s.nextInt());
+        }
+        alist.stream().forEach(x -> System.out.print(x+" "));
