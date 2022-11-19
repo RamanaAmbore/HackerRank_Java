@@ -1,0 +1,15 @@
+//Complete the code
+class Compare implements Comparator<Student>{
+    public int compare(Student st1, Student st2){
+        
+        if (st1.getCgpa() == st2.getCgpa()) 
+            if (st1.getFname() == st2.getFname())
+                if (st1.getId() == st2.getId()) return 0;
+                else return st1.getId()-st2.getId();
+            else return st1.getFname().compareTo(st2.getFname());
+        else 
+        if (st2.getCgpa() > st1.getCgpa()) return 1; else return -1;
+    }
+}
+
+studentList.sort(new Compare());
