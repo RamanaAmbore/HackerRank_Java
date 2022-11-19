@@ -1,0 +1,8 @@
+        import java.math.BigInteger;
+        
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        BigInteger x = sc.nextBigInteger();
+        BigInteger y = sc.nextBigInteger();
+        System.out.println(x.add(y));
+        System.out.println(x.multiply(y));  
