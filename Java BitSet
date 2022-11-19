@@ -1,0 +1,26 @@
+  /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int m = input.nextInt();
+    
+        BitSet[] bs = new BitSet[3];
+        bs[0]= new BitSet(n);
+        bs[1]= new BitSet(n);
+        bs[2]= new BitSet(n);
+        
+        String op;
+        int x, y;
+        
+        for (int i=0;i < m;++i){
+            op = input.next();
+            x = input.nextInt();
+            y = input.nextInt();
+            switch (op){
+                case "AND" : bs[x].and(bs[y]);break;
+                case "OR"  :  bs[x].or(bs[y]);break;
+                case "XOR" : bs[x].xor(bs[y]);break;
+                case "SET" : bs[x].set(y);break;
+                case "FLIP": bs[x].flip(y);break;
+            }
+            System.out.println(bs[1].cardinality()+" "+ bs[2].cardinality());
+        }  
