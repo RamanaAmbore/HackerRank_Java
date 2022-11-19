@@ -1,0 +1,21 @@
+            //Complete the code
+            HashMap<Character, Character> hm = new HashMap<Character, Character>(){{
+                put('}','{');
+                put(')','(');
+                put(']','[');
+                put('{','x');
+                put('(','x');
+                put('[','x');
+                }};
+            char ch, match, lst;
+
+            Stack <Character> stack = new Stack<>();
+            for (int i =0;i < input.length();++i)
+            {   ch=input.charAt(i);
+                match=hm.get(ch);
+                lst = (stack.size()!=0)? stack.peek():' ';
+
+                if (lst==match) stack.pop();
+                else stack.push(ch);
+            }
+            System.out.printf("%s\n",(stack.size()==0)?"true":"false"); 
