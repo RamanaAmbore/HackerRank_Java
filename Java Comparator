@@ -1,15 +1,10 @@
 // Write your Checker class here
-class Checker implements Comparator{
-    public int compare(Object obj1, Object obj2)
-    {
-        String name1 = ((Player) obj1).name;
-        int score1 = ((Player) obj1).score;
-        String name2 = ((Player) obj2).name;
-        int score2 = ((Player) obj2).score;
-        
-        if (score1 > score2) return -11;
-        else if (score1 == score2)
-            return name1.compareTo(name2);
-        else return 1;
+class Checker implements Comparator<Player>{
+    @Override
+    public int compare(Player obj1, Player obj2)
+    {   
+        if (obj1.score == obj2.score)
+            return obj1.name.compareTo(obj2.name);
+        else return obj2.score - obj1.score;
     }
 }
