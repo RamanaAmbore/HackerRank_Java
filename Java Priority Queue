@@ -1,0 +1,47 @@
+public Student(String name, int id, double cgpa){
+        this.id = id;
+        this.name = name;
+        this.cgpa = cgpa;
+        
+    }
+    public int getId(){
+        return this.id;
+    }
+    public double getCgpa(){
+        return this.cgpa;
+    }
+    public String getName(){
+        return this.name;
+    }
+    @Override
+    public int compareTo(Student st){
+        if (this.cgpa == st.cgpa) 
+            if (this.name.compareTo(st.name)==0)
+                return this.id - st.id;
+            else return this.name.compareTo(st.name);
+        else return (this.cgpa - st.cgpa)>0?-1:1;
+    }
+}
+
+class Priorities{
+    PriorityQueue<Student> q = new PriorityQueue<>();
+    List<Student> getStudents (List<String> events){
+        for (String event : events) {
+            if (event.contains("ENTER")) {
+                String[] student = event.split(" ");
+                Student s = new Student(
+                        student[1],
+                        Integer.parseInt(student[3]),
+                        Double.parseDouble(student[2]));
+                q.add(s);
+            }
+
+            if (event.contains("SERVED")) {
+                if (q.size() > 0) {
+                    q.poll();
+                }
+            }
+        }
+    return q.stream().sorted().collect(Collectors.toList());
+    }
+}
