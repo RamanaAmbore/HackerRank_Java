@@ -1,0 +1,7 @@
+      while(it.hasNext()){
+         Object element = it.next();
+         if(element instanceof String)//Hints: use instanceof operator
+
+			break;
+		}
+      return it;
