@@ -1,0 +1,7 @@
+	class FoodFactory {
+		public Food getFood(String order) {
+        //Write your code here
+        if (order.equals("cake")) return new Cake();
+        else return new Pizza();
+
+}//End of getFood method
