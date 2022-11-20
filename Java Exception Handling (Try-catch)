@@ -1,0 +1,10 @@
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner input = new Scanner(System.in);
+        try{
+            System.out.printf("%d",(int)(input.nextInt()/input.nextInt()));
+        
+        } catch (ArithmeticException e) {
+            System.out.println(e);
+        } catch (InputMismatchException e) {
+            System.out.println(e.getClass().getName());
+        }
