@@ -1,0 +1,16 @@
+    public static boolean canWin(int leap, int[] game) {
+      return recursiveWin(0, leap, game);
+    }
+    public static boolean recursiveWin(int pos, int leap, int[] game){
+   
+        // System.out.println(" "+pos);
+ 
+        if (pos > game.length-1) return true;
+        if ( (pos < 0) || (game[pos]==1)) return false;
+        // this step is very critical to make the code work
+        game[pos]=1;
+        return ((recursiveWin(pos+leap, leap, game)) ||
+                (recursiveWin(pos+1, leap, game))|| 
+                (recursiveWin(pos-1, leap, game)));
+
+    }
